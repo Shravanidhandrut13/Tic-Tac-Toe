@@ -1,0 +1,312 @@
+/* Basic styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    /* background: url('background.jpg') no-repeat center center fixed; */
+    background: url('https://static.vecteezy.com/system/resources/previews/008/311/935/non_2x/the-illustration-graphic-consists-of-abstract-background-with-a-blue-gradient-dynamic-shapes-composition-eps10-perfect-for-presentation-background-website-landing-page-wallpaper-vector.jpg') no-repeat center center fixed;
+
+    background-size: cover; /* Ensure the image covers the whole background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: transparent; /* Make container fully transparent */
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.score {
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.mode-selection {
+    margin-bottom: 20px;
+}
+
+.mode-button, .marker-button, .restart {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.mode-button:hover, .marker-button:hover, .restart:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.active-mode {
+    background-color: #ff9a9e;
+    transform: scale(1.1);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.cell:hover {
+    transform: scale(1.1);
+}
+
+.cell.marked {
+    animation: mark 0.5s ease-in-out;
+}
+
+@keyframes mark {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.status {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhanced Marker Selection Styles */
+.marker-selection p {
+    color: #fff;
+    margin-bottom: 2px;
+    font-size: 1.2rem;
+}
+
+.marker-button {
+    cursor: pointer;
+    font-size: 10px;
+    padding: 15px 30px;
+    margin: 10px;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #ff6a00, #ee0979); /* Gradient background */
+    color: #fff;
+    border-radius: 90px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.marker-button:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.active-marker {
+    border: 2px solid #ffeb3b;  /* Yellow border to highlight */
+    background: linear-gradient(135deg, #fbc02d, #ffeb3b);  /* Light yellow gradient */
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(255, 235, 59, 0.7); /* Glow effect */
+    transform: scale(1.2); /* Slightly larger to indicate selection */
+}
+
+/* Confetti animation */
+@keyframes confetti {
+    0% { transform: rotateZ(15deg) rotateX(0deg) translateY(0); opacity: 1; }
+    100% { transform: rotateZ(15deg) rotateX(360deg) translateY(100vh); opacity: 0; }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #fff;
+    opacity: 0;
+    animation: confetti 3s ease-out forwards;
+    animation-delay: 0s;
+    pointer-events: none;
+}
+
+
+
+/*body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('https://static.vecteezy.com/system/resources/previews/008/311/935/non_2x/the-illustration-graphic-consists-of-abstract-background-with-a-blue-gradient-dynamic-shapes-composition-eps10-perfect-for-presentation-background-website-landing-page-wallpaper-vector.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: transparent;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.score {
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.mode-selection {
+    margin-bottom: 20px;
+}
+
+.mode-button, .marker-button, .restart {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.mode-button:hover, .marker-button:hover, .restart:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.active-mode {
+    background-color: #ff9a9e;
+    transform: scale(1.1);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.cell:hover {
+    transform: scale(1.1);
+}
+
+.cell.marked {
+    animation: mark 0.5s ease-in-out;
+}
+
+@keyframes mark {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.status {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+.marker-selection p {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.marker-button {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid #ccc;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.marker-button:hover {
+    background-color: #d6d6d6;
+}
+
+.active-marker {
+    border: 2px solid #ffeb3b;  
+    background-color: #fbc02d;  
+    color: #fff;                
+    border-radius: 5px;         
+    padding: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+
+@keyframes confetti {
+    0% { transform: rotateZ(15deg) rotateX(0deg) translateY(0); opacity: 1; }
+    100% { transform: rotateZ(15deg) rotateX(360deg) translateY(100vh); opacity: 0; }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #fff;
+    opacity: 0;
+    animation: confetti 3s ease-out forwards;
+    animation-delay: 0s;
+    pointer-events: none;
+}
